@@ -2,11 +2,12 @@ import requests
 import time
 import subprocess  # 実行するスクリプトやコマンドに応じて必要なモジュールをインポート
 
-FASTAPI_SERVER = "http://everyone-l-chika.onrender.com:8002"
+FASTAPI_SERVER = "https://everyone-l-chika.onrender.com:8002"
 
 while True:
     try:
         response = requests.get(f"{FASTAPI_SERVER}/get-command/")
+        print(response)
         command = response.json().get('command')
         print(command)
         if command:

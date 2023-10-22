@@ -2,7 +2,7 @@ import requests
 import time
 import subprocess  # 実行するスクリプトやコマンドに応じて必要なモジュールをインポート
 
-FASTAPI_SERVER = "https://everyone-l-chika.onrender.com:10000"
+FASTAPI_SERVER = "https://everyone-l-chika.onrender.com"
 
 while True:
     try:

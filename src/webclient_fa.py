@@ -1,5 +1,6 @@
 from fastapi import FastAPI
 import uvicorn
+from pydantic import BaseModel
 
 app = FastAPI()
 command_to_run = None
@@ -8,11 +9,15 @@ command_to_run = None
 def index():
     return {"Hello": "World"}
 
+class Command(BaseModel):
+    command: str
+
 @app.post("/run-command/")
-async def run_command():
+async def run_command(command: Command):
     global command_to_run
-    command_to_run = "some_command"  # ここに実行したいコマンドを設定
-    return {"status": "command set"}
+    command_to_run = command.command
+    return {"message": "Command was run successfully."}
+    
 
 @app.get("/get-command/")
 async def get_command():

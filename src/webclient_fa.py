@@ -9,15 +9,11 @@ command_to_run = None
 def index():
     return {"Hello": "World"}
 
-class Command(BaseModel):
-    command: str
-
 @app.post("/run-command/")
-async def run_command(command: Command):
+async def run_command():
     global command_to_run
-    command_to_run = command.command
-    return {"message": "Command was run successfully."}
-    
+    command_to_run = "some_command"  # ここに実行したいコマンドを設定
+    return {"status": "command set"}
 
 @app.get("/get-command/")
 async def get_command():

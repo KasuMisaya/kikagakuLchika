@@ -3,6 +3,7 @@ import streamlit as st
 import requests
 
 FASTAPI_SERVER = "http://127.0.0.1:8000"
+FASTAPI_SERVER = "https://everyone-l-chika.onrender.com"
 headers = {
     'Content-Type': 'application/json',
     'accept': 'application/json'
